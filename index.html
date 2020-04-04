@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Intro to JS in a Browser</title>
+</head>
+
+<!-- Your assignment should be in the form of an HTML page, which I will be able to run locally.
+Refer to the file 'js_in_webpage.html' on the github page for instructions on setting up
+javascript to run on an HTML page, and how to run/debug.
+You should complete both of these in 2 (or more) functions on one HTML page
+
+
+example: type in 2 and it results in:
+<table>
+<tr><td>2</td><td>4</td><td>6</td><td>8</td></tr>
+<tr><td>10</td><td>12</td><td>14</td><td>16</td></tr>
+<tr><td>18</td><td>20</td><td>22</td><td>24</td></tr>
+<tr><td>26</td><td>28</td><td>30</td><td>32</td></tr>
+<tr><td>34</td><td>36</td><td>38</td><td>40</td></tr>
+</table> -->
+<body>
+    <h1>Question 1 </h1>
+    <h2>Create a function to reverse any word that you type in. This can be typed into either an input
+        box or an alert box, and then print the result in a box or on the webpage.</h2>
+    <script type="text/javascript">
+    
+        function reverseString(word){
+            let splitWord = word.split('');
+            let reverseLetters = splitWord.reverse();
+            let joinWord = reverseLetters.join('');
+
+        return joinWord;
+        }
+
+        function reverseWord(){
+            var getWord = document.getElementById("target1");
+            getWord.innerHTML = reverseString(document.getElementById('word').value);      
+        };
+    </script>
+    <p>
+        <form>
+            <input id="word" type="text" size="30">
+            <input type="button" value="Reverse!" onClick="reverseWord();">
+        </form>
+    </p>
+    <div id="target1" size=10></div>
+
+    <h1>Question 2</h1>
+    <h2>Create a function that takes an input number, and prints a table with the first 20 multiples of
+        the number, in order 5x4</h2>
+    
+    <script type="text/javascript">
+
+        function makeTable(num){    
+           var table = '';
+           var rows = 5;
+           var cols = 4;
+           var val = 1
+
+           for(var r =1; r <= rows; r++)
+           {
+                table += '<tr>';
+                    for(var c = 1; c <= cols; c++)
+                    {   
+                        table += '<td>' + val*num + '</td>'; 
+                        val++; 
+                    }
+                table += '</tr>';
+            }
+        return('<table>'+ table + '</table>')
+            
+        }
+        
+        function getTable(){
+            var table1 = document.getElementById("target2");
+            table1.innerHTML = makeTable(document.getElementById('number').value)
+        }
+     </script>
+    
+    
+    <p>
+        <form>
+            <input id="number" type="number" size="4">
+            <input type="button" value="Get Table" onClick="getTable();">
+        </form>
+    </p>
+    
+    <div id='target2' size=20></div>
+
+
+    
+</body>
+
+
